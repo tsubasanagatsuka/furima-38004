@@ -2,21 +2,20 @@
 
 ## usersテーブル
 
-| Column           | Type       | Options                        |
-| -----------------| ---------- | -------------------------------|
-| nickname	       | string     | null: false,                   |
-| email            | string     | null: false,      unique: true |
-| encrypted_password| string    | null: false,                   |
-| last_name        | string     | null: false,                   |
-| first_name       | string     | null: false,                   |
-| last_name_kana   | string     | null: false,                   |
-| first_name_kana  | string     | null: false,                   |
-| birthday         | date       | null: false,                   |
+| Column            | Type       | Options                        |
+| ----------------- | ---------- | -------------------------------|
+| nickname	        | string     | null: false,                   |
+| email             | string     | null: false,      unique: true |
+| encrypted_password| string     | null: false,                   |
+| last_name         | string     | null: false,                   |
+| first_name        | string     | null: false,                   |
+| last_name_kana    | string     | null: false,                   |
+| first_name_kana   | string     | null: false,                   |
+| birthday          | date       | null: false,                   |
 
 
 ### Association
-- has_many_to :items
-- has_many_to :my_address
+- has_many_to :item
 - has_many_to :purchase
 
 
@@ -26,7 +25,7 @@
 
 | Column                | Type       | Options                          |
 | -----------------     | -----------|--------------------------        |
-| postcode              | string    | null: false,                    |
+| postcode              | string     | null: false,                      |
 | prefecture            | integer    | null: false,                     |
 | city                  | string     | null: false,                     |
 | building              | string     | null: false,                     |
@@ -36,7 +35,7 @@
 
 
 ### Association
-- belongs_to :user
+- belongs_to :purchase
 
 
 
@@ -45,14 +44,14 @@
 | Column            | Type       | Options                          |
 | ------------------| ---------- | ---------------------------------|
 | name              | string     | null: false,                     |
-| description       | string     | null: false,                     |
-| status            | integer    | null: false,                     |
-| delivery_burden   | string     | null: false,                     |
-| shipping_area_id  | string     | null: false,                     |
-| days _to_ship     | string     | null: false,                     |
+| description       | text       | null: false,                     |
+| state_id          | integer    | null: false,                     |
+| delivery_burden_id| integer    | null: false,                     |
+| prefecture_id     | integer     | null: false,                     |
+| ship_day_id       | integer     | null: false,                     |
 | price             | integer    | null: false,                     |
-| user              | references | null: false,   foreign_key: true |
-| category          | references | null: false,   foreign_key: true |
+| user              | integer    | null: false,   foreign_key: true |
+| category_id       | integer    | null: false,   foreign_key: true |
 | image             | references | null: false,   foreign_key: true |
 
 
@@ -65,15 +64,15 @@
 
 ## purchaseテーブル
 
-| Column               | Type       | Options                             |
-| ------------------   | ---------- | ---------------------------------   |
-| items                | reference     | null: false,   foreign_key: true |
-| user                 | reference     | null: false,   foreign_key: true |
-| Shipping             | reference     | null: false,   foreign_key: true |
+| Column               | Type       | Options                             
+| ------------------   | ---------- | ---------------------------------   
+| item                 | reference     | null: false,   foreign_key: true 
+| user                 | reference     | null: false,   foreign_key: true 
 
 ### Association
 - belongs_to :user
-- belongs_to :items
+- belongs_to :item
+- has_many_to :my_address
 
 
 
