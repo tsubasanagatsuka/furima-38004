@@ -20,6 +20,7 @@
 
 
 
+
 ## my_addressesテーブル
 
 | Column                | Type       | Options                                 |
