@@ -21,17 +21,17 @@
 
 
 
-## my_addressテーブル
+## my_addressesテーブル
 
 | Column                | Type       | Options                          |
 | -----------------     | -----------|--------------------------        |
 | postcode              | string     | null: false,                      |
-| prefecture            | integer    | null: false,                     |
+| prefecture_id         | integer    | null: false,                     |
 | city                  | string     | null: false,                     |
 | building              | string     | null: false,                     |
-| block	                | string     |                                  |
+| building	            | string     |                                  |
 | phone_number          | string     | null: false,                     |
-| user                  | references | null: false,                     |
+| user           | references | null: false,   foreign_key:true         |
 
 
 ### Association
@@ -47,22 +47,22 @@
 | description       | text       | null: false,                     |
 | state_id          | integer    | null: false,                     |
 | delivery_burden_id| integer    | null: false,                     |
-| prefecture_id     | integer     | null: false,                     |
-| ship_day_id       | integer     | null: false,                     |
+| prefecture_id     | integer     | null: false,                    |
+| ship_day_id       | integer     | null: false,                    |
 | price             | integer    | null: false,                     |
 | user              | integer    | null: false,   foreign_key: true |
 | category_id       | integer    | null: false,   foreign_key: true |
-| image             | references | null: false,   foreign_key: true |
+
 
 
 ### Association
 - belongs_to :user
-- has_many_to :purchase
+- has_many :purchase
 
 
 
 
-## purchaseテーブル
+## purchasesテーブル
 
 | Column               | Type       | Options                             
 | ------------------   | ---------- | ---------------------------------   
@@ -72,7 +72,7 @@
 ### Association
 - belongs_to :user
 - belongs_to :item
-- has_many_to :my_address
+- has_many :my_address
 
 
 
