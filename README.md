@@ -15,8 +15,8 @@
 
 
 ### Association
-- has_many_to :item
-- has_many_to :purchase
+- has_many :item
+- has_many :purchase
 
 
 
@@ -28,7 +28,7 @@
 | postcode              | string     | null: false,                      |
 | prefecture_id         | integer    | null: false,                     |
 | city                  | string     | null: false,                     |
-| building              | string     | null: false,                     |
+| address              | string     | null: false,                     |
 | building	            | string     |                                  |
 | phone_number          | string     | null: false,                     |
 | user           | references | null: false,   foreign_key:true         |
@@ -50,14 +50,14 @@
 | prefecture_id     | integer     | null: false,                    |
 | ship_day_id       | integer     | null: false,                    |
 | price             | integer    | null: false,                     |
-| user              | integer    | null: false,   foreign_key: true |
-| category_id       | integer    | null: false,   foreign_key: true |
+| category_id       | integer    | null: false,                     |
+| user              | references | null: false,   foreign_key: true |
 
 
 
 ### Association
 - belongs_to :user
-- has_many :purchase
+- has_one :purchase
 
 
 
@@ -66,13 +66,13 @@
 
 | Column               | Type       | Options                             
 | ------------------   | ---------- | ---------------------------------   
-| item                 | reference     | null: false,   foreign_key: true 
-| user                 | reference     | null: false,   foreign_key: true 
+| item                 | references    | null: false,   foreign_key: true 
+| user                 | references    | null: false,   foreign_key: true 
 
 ### Association
 - belongs_to :user
 - belongs_to :item
-- has_many :my_address
+- has_one :my_address
 
 
 
