@@ -40,8 +40,8 @@ RSpec.describe 'ユーザー新規登録', type: :system do
       # サインアップページへ遷移するボタンや、ログインページへ遷移するボタンが表示されていないことを確認する
       expect(page).to have_no_content('新規登録')
       expect(page).to have_no_content('ログイン')
+      end
     end
-  end
 #   context 'ユーザー新規登録ができないとき' do
 #     it '誤った情報ではユーザー新規登録ができずに新規登録ページへ戻ってくる' do
 #       # トップページに移動する
