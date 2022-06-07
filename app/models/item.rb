@@ -14,15 +14,16 @@ belongs_to :ship_day
   # has_one :purchases
   has_one_attached :image
 
-  validate :name
-  validate :description
-  validate :category_id
-  validate :state_id
-  validate :delivery_burden_id
-  validates :prefecture_id
-  validates :ship_day_id
-  #空の投稿を保存できないようにする
-  validates :title, :text, presence: true
+  validates :name, presence: true
+  validates :description, presence: true
+  validates :category_id, presence: true
+  validates :state_id, presence: true
+  validates :delivery_burden_id, presence: true
+  validates :prefecture_id, presence: true
+  validates :ship_day_id, presence: true
+  validates :price, presence: true
+
+  
   #ジャンルの選択が「---」の時は保存できないようにする
   validates :category_id, :state_id, numericality: { other_than: 1 , message: "can't be blank"}
 end
