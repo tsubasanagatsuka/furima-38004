@@ -13,7 +13,8 @@ class Item < ApplicationRecord
 
   # has_one :purchases
   has_one_attached :image
-
+  
+  validates :user_id, presence: true
   validates :image, presence: true
   validates :name, presence: true, length: {maximum: 40}
   validates :description, presence: true, length: {maximum: 1000}
@@ -22,5 +23,5 @@ class Item < ApplicationRecord
   validates :delivery_burden_id, presence: true, numericality: { other_than: 0 } 
   validates :prefecture_id, presence: true, numericality: { other_than: 0 } 
   validates :ship_day_id, presence: true, numericality: { other_than: 0 } 
-  validates :price, presence: true,  numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }, format: { with: /\A[0-9]+\z/ }
+  validates :price, presence: true,  numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
 end
