@@ -23,5 +23,5 @@ class Item < ApplicationRecord
   validates :delivery_burden_id, presence: true, numericality: { other_than: 0 } 
   validates :prefecture_id, presence: true, numericality: { other_than: 0 } 
   validates :ship_day_id, presence: true, numericality: { other_than: 0 } 
-  validates :price, presence: true,  numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
+  validates :price, presence: true,  numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 , only_integer: true }
 end
