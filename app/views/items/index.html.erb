@@ -129,7 +129,7 @@
     <ul class='item-lists'>
 
 
-      <% @items.each do |item| %>
+      <%# <% @items.each do |item| %> %>
           <li class='list'>
             <%= link_to item_path(item) do %>
               <div class='item-img-content'>
@@ -160,9 +160,6 @@
           </li>
         <% end %>
       
-      <%# //商品がある場合は表示されないようにしましょう %>
-      
-      <%# //商品がない場合は以下のダミー商品が表示されるようにしましょう %>
 
     <% if @items.blank? then %>
       <li class='list'>
