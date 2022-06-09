@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :user
+  has_one :purchase
 
   
   
@@ -14,7 +15,6 @@ class Item < ApplicationRecord
   # has_one :purchases
   has_one_attached :image
   
-  validates :user_id, presence: true
   validates :image, presence: true
   validates :name, presence: true, length: {maximum: 40}
   validates :description, presence: true, length: {maximum: 1000}
