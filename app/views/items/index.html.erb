@@ -129,12 +129,12 @@
     <ul class='item-lists'>
 
 
-      <%# <% @items.each do |item| %>
-          <%# <li class='list'>
-            <%= link_to item_path(item) do %>
-              <%# <div class='item-img-content'> %>
-                <%# <%= image_tag item.image.variant(resize: '500x500'), class: "item-img" if item.image.attached? %>
- %>
+      <% @items.each do |item| %>
+          <li class='list'>
+            <%= link_to item_path(item.id) do %>
+              <div class='item-img-content'>
+                <%= image_tag item.image.variant(resize: '500x500'), class: "item-img" if item.image.attached? %>
+
 
                 <% if item.purchase.present? %>
                 <div class='sold-out'>
@@ -160,9 +160,6 @@
           </li>
         <% end %>
       
-      <%# //商品がある場合は表示されないようにしましょう %>
-      
-      <%# //商品がない場合は以下のダミー商品が表示されるようにしましょう %>
 
     <% if @items.blank? then %>
       <li class='list'>
