@@ -40,7 +40,6 @@ RSpec.describe Item, type: :model do
       it '商品に紐づくuserが存在しないい場合、出品できない' do
         @item.user_id = nil
         @item.valid?
-        # binding.pry
         expect(@item.errors.full_messages).to include('User must exist')
       end
       it '１枚画像がないと出品できない' do
