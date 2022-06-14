@@ -1,7 +1,7 @@
 class PurchaseMyAddress
 
   include ActiveModel::Model
-  attr_accessor :postcode, :prefecture_id, :city, :address, :building, :phone_number,:purchase_id, :item_id, :user_id
+  attr_accessor :postcode, :prefecture_id, :city, :address, :building, :phone_number,:purchase_id, :item_id, :user_id, :token
 
   # ここにバリデーションの処理を書く
   with_options presence: true do
@@ -12,6 +12,7 @@ class PurchaseMyAddress
     validates :phone_number, {length: {in: 10..11}, numericality: true}
     validates :user_id
     validates :item_id
+    validates :token
     # validates :purchase_id
   end
 
