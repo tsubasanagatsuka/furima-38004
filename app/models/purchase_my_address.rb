@@ -13,13 +13,11 @@ class PurchaseMyAddress
     validates :user_id
     validates :item_id
     validates :token
-    # validates :purchase_id
   end
 
   def save
     # 寄付情報を保存し、変数donationに代入する
     purchase = Purchase.create(item_id: item_id, user_id: user_id)
-    # 住所を保存する
 
     # donation_idには、変数donationのidと指定する
     MyAddress.create(postcode: postcode, prefecture_id: prefecture_id, address: address, city: city, phone_number: phone_number, building: building, purchase_id: purchase.id)
