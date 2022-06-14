@@ -58,8 +58,14 @@
 ### Association
 - belongs_to :user
 - has_one :purchase
+- has_one_attached :image
 
-
+### Active hash
+- belongs_to :category
+- belongs_to :prefecture
+- belongs_to :state
+- belongs_to :delivery_burden
+- belongs_to :ship_day
 
 
 ## purchasesテーブル
