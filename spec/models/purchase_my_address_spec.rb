@@ -2,7 +2,9 @@ require 'rails_helper'
 
 RSpec.describe PurchaseMyAddress, type: :model do
   before do
-    @purchase_my_address = FactoryBot.build(:purchase_my_address)
+    @item = FactoryBot.create(:item)
+    @user = FactoryBot.create(:user)
+    @purchase_my_address = FactoryBot.build(:purchase_my_address, user_id: @user.id, item_id: @item.id)
     sleep 0.1
   end
 
@@ -100,6 +102,11 @@ RSpec.describe PurchaseMyAddress, type: :model do
         @purchase_my_address.phone_number = 12345678910123111
         @purchase_my_address.valid?
         expect(@purchase_my_address.errors.full_messages).to include("Phone number is too long (maximum is 11 characters)")
+      end
+      it '電話番号が9桁以下であると保存できないこと' do
+        @purchase_my_address.phone_number = 12345678
+        @purchase_my_address.valid?
+        expect(@purchase_my_address.errors.full_messages).to include("Phone number is too short (minimum is 10 characters)")
       end
       it 'トークンが空だと保存できないこと' do
         @purchase_my_address.token = nil
